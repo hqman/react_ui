@@ -10,7 +10,7 @@ import AppContent from 'components/Content'
 
 const App = () => {
   return (
-    <Layout>
+    <Layout style={{ minHeight: '100vh' }}>
       <AppSider />
       <Layout>
         <AppHeader />

@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
 import { Layout } from 'antd'
-import AppSider from 'components/Sider';
+import AppSider from 'components/Sider/index2';
 import AppHeader from 'components/Header';
 import AppFooter from 'components/Footer';
 import AppContent from 'components/Content'
 
+const { Content } = Layout
 
 
-
-const App = () => {
+const App2 = () => {
   return (
     <Layout>
-      <AppSider />
-      <Layout>
+      <AppHeader showLogo={true} />
+      <Content>
         <Layout>
-          <AppHeader />
+          <AppSider />
           <AppContent />
-          <AppFooter />
         </Layout>
-
-      </Layout>
+      </Content>
+      <AppFooter />
     </Layout>
   )
 }
-export default App
+export default App2

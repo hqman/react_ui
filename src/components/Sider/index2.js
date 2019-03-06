@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
-import { useQuery } from 'react-apollo-hooks';
-import { SIDE_NAV_STATE } from 'query';
+import { useQuery, useMutation } from 'react-apollo-hooks';
+import { SIDE_NAV_STATE, TOGGLE_SIDER } from 'query';
 
 import {
   Layout, Menu, Breadcrumb, Icon,
@@ -17,19 +17,27 @@ const { Sider } = Layout
 
 
 const AppSider = () => {
-  const { data, error, loading } = useQuery(SIDE_NAV_STATE);
+  // const { data, error, loading } = useQuery(SIDE_NAV_STATE);
   // console.log('app sider ', data.collapsed.value);
 
+  const [collapsed, setCollapse] = useState(false);
+  // const toggle = useMutation(TOGGLE_SIDER);
+
+  const toggle = () => setCollapse(!collapsed)
 
   return (
     <Sider
-      collapsed={data.collapsed.value}
+      collapsible
+      collapsed={collapsed}
+      onCollapse={toggle}
+      // collapsible
+      // collapsed={collapsed}
+      // onCollapse={toggle}
       trigger={null}
       id="app-sidenav"
       width={240}
       className="app-sidenav"
     >
-      <h3 style={{ height: '55px', borderRight: 0 }}>sidenav</h3>
       <div>
         <Menu
           mode="inline"
