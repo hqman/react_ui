@@ -15,6 +15,7 @@ const AppContent = () => {
     <Content id='app-content'>
       <h3>AppContent  </h3>
       <div>{JSON.stringify(data)}</div>
+      adsfasdf
     </Content>
   )
 }

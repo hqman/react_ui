@@ -10,10 +10,8 @@ import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import gql from "graphql-tag";
 
-// import "antd/dist/antd.css";
-import './styles/antd.less'
-import "./styles/styles.scss";
-import Root from "./components/Root";
+
+import Root from "components/Root";
 
 
 const AUTH_TOKEN = 'token'
