@@ -1,0 +1,28 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+//
+// Color system
+//
+@import "bootstrap/functions";
+@import "global/variables-bootstrap";
+@import "global/variables-extra";
+@import "bootstrap/mixins";
+
+$bg-color: #01bcd4;
+$body-color: #fff;
+$body-bg: #fff;
+$gray-800: #ccc;
+// color
+$l_body_bg: $body-bg;
+$l_white: #fff; // for app-page-container, quickview, header
+$l_gray_dark: $gray-800; // for nav
+
+$bg-color: #01bcd4;
+$body-color: #fff;
+$sidenav_footer_height: 44px;
+$l_header_height: 50px;
+$dark-bg-color: #343a40;
+$white: #fff;

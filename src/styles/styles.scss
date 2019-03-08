@@ -1,10 +1,10 @@
-$bg-color: #01bcd4;
-$body-color: #fff;
-$sidenav_footer_height: 44px;
-$l_header_height: 50px;
-$dark-bg-color: #343a40;
-$page-bg: #f5f5f5;
-$white: #fff;
+@import "variables";
+
+@import "ui";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/content";
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -85,24 +85,7 @@ $white: #fff;
     height: $sidenav_footer_height;
   }
 }
-.app-header {
-  height: $l_header_height;
-  background-color: $bg-color !important;
-  padding: 0;
-  border: 0;
 
-  .bg-info {
-    color: $white;
-    a {
-      color: $white;
-    }
-  }
-}
-.app-header-inner {
-  .header-right {
-    padding-right: 5px;
-  }
-}
 .app-layout {
   &.ant-layout {
     // make sidenav full height

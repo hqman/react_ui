@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from "apollo-client";
+import { ApolloLink, split } from 'apollo-link';
+import { HttpLink } from 'apollo-link-http';
+import { withClientState } from 'apollo-link-state';
+import Root from "components/Root";
+import gql from "graphql-tag";
+import React from "react";
+import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import ReactDOM from "react-dom";
 
-import { withClientState } from 'apollo-link-state';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from "apollo-client";
-import { ApolloLink, split } from 'apollo-link'
-import { HttpLink } from 'apollo-link-http';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
-import gql from "graphql-tag";
 
 
-import Root from "components/Root";
 
 
 const AUTH_TOKEN = 'token'

@@ -1,0 +1,12 @@
+#app-content {
+  background-color: $page-bg;
+}
+.container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
+
+  &.no-breadcrumb {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+}

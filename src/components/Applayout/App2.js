@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Layout } from 'antd'
-import AppSider from 'components/Sider/index2';
-import AppHeader from 'components/Header';
+import { Layout } from 'antd';
+import AppContent from 'components/Content';
 import AppFooter from 'components/Footer';
-import AppContent from 'components/Content'
+import AppHeader from 'components/Header';
+import AppSider from 'components/Sider/index2';
+import React from 'react';
 
 const { Content } = Layout
 

@@ -1,12 +1,8 @@
+import { Icon, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
 
-import { useQuery, useMutation } from 'react-apollo-hooks';
-import { SIDE_NAV_STATE, TOGGLE_SIDER } from 'query';
 
-import {
-  Layout, Menu, Breadcrumb, Icon,
-} from 'antd';
 
 const { SubMenu } = Menu;
 

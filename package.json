@@ -23,7 +23,10 @@
     "react-apollo-hooks": "^0.4.2",
     "react-app-rewired": "^2.1.0",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.14",
+    "rc-queue-anim": "^1.6.5"
   },
   "scripts": {
     "start": "react-app-rewired  start",

@@ -1,0 +1,26 @@
+$l_header_height: 50px;
+
+.app-header {
+  background-color: $bg-color !important;
+
+  .bg-info {
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+  &.ant-layout-header {
+    height: $l_header_height;
+    padding: 0;
+    border: 0;
+  }
+
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+
+    .header-right {
+      padding-right: 5px;
+    }
+  }
+}
