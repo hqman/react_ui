@@ -10,7 +10,7 @@ import React from 'react';
 
 const App = () => {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout className='fixed-sidenav'>
       <AppSider />
       <Layout>
         <AppHeader />
