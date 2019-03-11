@@ -3,8 +3,10 @@ import React from 'react';
 import APPCONFIG from 'constants/config';
 
 const { Footer } = Layout;
+
+
 const AppFooter = () => (
-  <Footer className="app-footer app-footer-custom">
+  <div className="app-footer app-footer-custom">
     <div className="footer-inner">
 
       <span className="small">
@@ -15,7 +17,7 @@ const AppFooter = () => (
         Built with Love <Icon type="heart-o" />
       </span>
     </div>
-  </Footer>
+  </div>
 
 )
 

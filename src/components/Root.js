@@ -9,6 +9,9 @@ import '../styles/antd.less';
 import "styles/bootstrap/bootstrap.scss";
 import "styles/styles.scss";
 import "styles/vendors.scss"
+
+
+
 const Root = ({ layout }) => {
   console.log(layout);
 

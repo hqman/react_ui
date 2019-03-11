@@ -1,6 +1,7 @@
 @import "variables";
 
 @import "ui";
+@import "layout/sidenav";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/content";
@@ -10,9 +11,6 @@
   text-align: center;
 }
 
-.app-sidenav-container {
-  display: flex;
-}
 .app-sidenav {
   .bg-dark,
   .bg-primary,
@@ -29,91 +27,18 @@
   }
 }
 
-.fixed-header {
-  .ant-layout {
-    // apply to all .ant-layout Class
-    overflow: auto;
-  }
-  .ant-layout-sider {
-    overflow: auto;
-  }
-}
+// .fixed-header {
+//   .ant-layout {
+//     // apply to all .ant-layout Class
+//     overflow: auto;
+//   }
+//   .ant-layout-sider {
+//     overflow: auto;
+//   }
+// }
 
-.fixed-sidenav {
-  .app-sidenav-container, // when #app-sidenav is wrapped in a container
-  #app-sidenav {
-    height: 100vh; // 什么意思？ 元素占用 100%的高度 100vw 为宽度
-
-    & + .ant-layout {
-      // 当前元素的下一个 兄弟节点设置为 高度100%
-      height: 100vh;
-    }
-  }
-}
 .sidenav-bg-dark {
   background-color: $dark-bg-color;
-}
-.app-sidenav {
-  display: flex;
-  flex-direction: column;
-
-  + .ant-layout {
-    transition: all 0.2s; // same with .ant-layout-sider, so that when sidenavWidth changes, the transition are consistent
-  }
-
-  > .ant-layout-sider-children {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidenav-header {
-    flex: 0 0 auto;
-    height: $l_header_height;
-
-    .brand {
-      display: block;
-      // margin: 10px auto;
-
-      font-size: 1.5em;
-      text-align: center;
-    }
-  }
-
-  .sidenav-content {
-    // background-color: $dark-bg-color;
-    position: relative;
-    z-index: 1;
-    flex: 1 1 auto;
-    overflow: auto;
-  }
-
-  // remove ant menu border, and use custom, because antd border only applies to menu
-  .ant-menu-inline,
-  .ant-menu-vertical,
-  .ant-menu-vertical-left {
-    border-right: 0;
-  }
-  // avoid horizontal scrollbar
-  .ant-menu-inline .ant-menu-item,
-  .ant-menu-inline .ant-menu-submenu-title {
-    width: 100%; // orginal: calc(100% + 1px);
-  }
-
-  .sidenav-content,
-  .sidenav-footer {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  &.sidenav-bg-dark {
-    .sidenav-content,
-    .sidenav-footer {
-      border-right: 0;
-    }
-  }
-
-  .sidenav-footer {
-    flex: 0 0 auto;
-    height: $sidenav_footer_height;
-  }
 }
 
 .app-layout {
@@ -146,29 +71,6 @@
   }
 }
 
-.app-sidenav.ant-layout-sider-collapsed {
-  .sidenav-header {
-    padding-left: 27.5px; // same with ant menu icon 32(padding) + 15/2 = 39.5
-  }
-
-  // .brand {
-  //   display: none;
-  // }
-
-  .nav-badge {
-    display: none;
-  }
-
-  .sidenav-footer {
-    > a {
-      padding-left: 32px;
-    }
-    .nav-text {
-      display: none;
-    }
-  }
-}
-
 // React logo, #67DAF9
 .logo-img {
   width: 24px;
@@ -193,4 +95,28 @@
 
 #app-content {
   background-color: $page-bg;
+
+  p {
+    height: 2000px;
+    border: 2px solid red;
+  }
+}
+
+.fixed-sidenav {
+  .app-sidenav-container, // when #app-sidenav is wrapped in a container
+  #app-sidenav {
+    height: 100vh; // 什么意思？ 元素占用 100%的高度 100vw 为宽度
+
+    & + .ant-layout {
+      // 当前元素的 兄弟节点设置为 高度 视口的100%
+      height: 100vh;
+      /**
+      // fix 严重bug
+              min-height: 0;//默认值 时候导致 底部元素 显示错误
+              */
+      .ant-layout-content {
+        min-height: fit-content;
+      }
+    }
+  }
 }

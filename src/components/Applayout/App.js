@@ -10,9 +10,9 @@ import React from 'react';
 
 const App = () => {
   return (
-    <Layout className='fixed-sidenav'>
+    <Layout className='fixed-sidenav' id="app-layout">
       <AppSider />
-      <Layout>
+      <Layout className="fixed-height">
         <AppHeader />
         <AppContent />
         <AppFooter />

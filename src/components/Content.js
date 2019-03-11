@@ -5,6 +5,8 @@ import { PRODUCT_PAGE } from 'query';
 
 import { useQuery } from 'react-apollo-hooks';
 import Dashboard from 'pages/Dashboard/index';
+import { Route } from 'react-router-dom'
+
 
 const { Content } = Layout;
 
@@ -14,9 +16,11 @@ const AppContent = () => {
 
   return (
     <Content id='app-content'>
-      <Dashboard />
+      <Route
+        path='/dash'
+        component={Dashboard}
+      />
     </Content>
   )
 }
-
 export default AppContent

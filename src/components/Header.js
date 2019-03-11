@@ -1,9 +1,14 @@
 import React from 'react';
 import { useMutation, useQuery } from 'react-apollo-hooks';
-import { Avatar, Divider, Dropdown, Icon, Layout, Menu } from 'antd';
+import { Avatar, Divider, Dropdown, Icon, Layout, Menu, Radio } from 'antd';
 
-import { SIDE_NAV_STATE, TOGGLE_SIDER } from 'query';
+import { SIDE_NAV_STATE, TOGGLE_SIDER, TOGGLE_ISBUY } from 'query';
 import Logo from './Logo';
+
+
+
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 
 const { Header } = Layout
@@ -21,13 +26,24 @@ const avatarDropdown = (
 );
 
 const AppHeader = ({ showLogo }) => {
+
+  const [isBuy] = React.useState(true);
+
   const { data } = useQuery(SIDE_NAV_STATE);
   const toggle = useMutation(TOGGLE_SIDER, {
     update: (proxy, mutationResult) => {
-      console.log(mutationResult);
+      // console.log(mutationResult);
 
     }
   });
+
+  const changeIsBuy = useMutation(TOGGLE_ISBUY, {
+    update: (proxy, mutationResult) => {
+      // console.log(mutationResult);
+
+    }
+  });
+
 
   return (
     <Header className="app-header">
@@ -44,6 +60,13 @@ const AppHeader = ({ showLogo }) => {
               onClick={toggle}>
               <Icon type={data.collapsed.value ? 'menu-unfold' : 'menu-fold'} className="list-icon" />
             </a>
+
+
+            <RadioGroup onChange={changeIsBuy} defaultValue={isBuy} buttonStyle="solid">
+              <RadioButton value={true}>&nbsp;&nbsp;买&nbsp;&nbsp;</RadioButton>
+              <RadioButton value={false}>&nbsp;&nbsp;卖&nbsp;&nbsp;</RadioButton>
+            </RadioGroup>
+
           </div>
 
 
