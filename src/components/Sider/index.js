@@ -17,8 +17,8 @@ const AppSider = () => {
   const { data } = useQuery(SIDE_NAV_STATE);
   // const { isBuy } = useQuery(ISBUY_STATE);
 
-  console.log('data ', data);
-  
+  // console.log('data ', data);
+
   // const [collapsed, setCollapse] = useState(false);
   const toggle = useMutation(TOGGLE_SIDER);
 

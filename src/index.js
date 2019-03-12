@@ -6,11 +6,11 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 
 
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import Root from "components/Root";
 import client from "apolloConfig";
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 
 // import Main from "./layout";

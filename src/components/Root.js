@@ -13,7 +13,6 @@ import "styles/vendors.scss"
 
 
 const Root = ({ layout }) => {
-  console.log(layout);
 
   if (layout === 2) {
     return <App2 />

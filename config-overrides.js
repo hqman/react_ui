@@ -1,4 +1,4 @@
-const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader, addBabelPlugin } = require('customize-cra');
 
 module.exports = override(
   fixBabelImports('import', {
@@ -10,4 +10,10 @@ module.exports = override(
     javascriptEnabled: true,
     // modifyVars: { '@primary-color': '#25b864' },
   }),
+
+  addBabelPlugin(
+    ["babel-plugin-import-graphql", { nodePath: process.env.NODE_PATH }]
+  )
 );
+
+
