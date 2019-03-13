@@ -2,10 +2,9 @@ import React from 'react';
 import { useMutation, useQuery } from 'react-apollo-hooks';
 import { Avatar, Divider, Dropdown, Icon, Layout, Menu, Radio } from 'antd';
 
-import { SIDE_NAV_STATE, TOGGLE_SIDER, TOGGLE_ISBUY } from 'query';
+import { AllLocalState, ToggleSider, ToggleIsBuy } from 'graphql/local.graphql'
+// import { SIDE_NAV_STATE } from 'query';
 import Logo from './Logo';
-
-
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -29,15 +28,15 @@ const AppHeader = ({ showLogo }) => {
 
   const [isBuy] = React.useState(true);
 
-  const { data } = useQuery(SIDE_NAV_STATE);
-  const toggle = useMutation(TOGGLE_SIDER, {
+  const { data } = useQuery(AllLocalState);
+  const toggle = useMutation(ToggleSider, {
     update: (proxy, mutationResult) => {
       // console.log(mutationResult);
 
     }
   });
 
-  const changeIsBuy = useMutation(TOGGLE_ISBUY, {
+  const changeIsBuy = useMutation(ToggleIsBuy, {
     update: (proxy, mutationResult) => {
       // console.log(mutationResult);
 

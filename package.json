@@ -17,6 +17,7 @@
     "echarts-for-react": "^2.0.14",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
+    "jwt-decode": "^2.2.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-sass": "^4.11.0",

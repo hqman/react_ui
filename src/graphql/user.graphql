@@ -1,0 +1,22 @@
+#import "./userFragment.graphql"
+query UserPageQuery {
+  userPage {
+    total
+    items {
+      ...UserF
+    }
+  }
+}
+
+mutation Login($userName: String!, $password: String!) {
+  login(password: $password, userName: $userName) {
+    ok
+    jwt
+    error
+    myCompanies {
+      id
+      name
+    }
+    currentCompanyId
+  }
+}

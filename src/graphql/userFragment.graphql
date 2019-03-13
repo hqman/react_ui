@@ -1,0 +1,6 @@
+fragment UserF on UserType {
+  id
+  userName
+  status
+  phone
+}

@@ -1,11 +1,11 @@
 import { Icon, Layout, Menu } from 'antd';
 import classnames from 'classnames';
-import { SIDE_NAV_STATE, TOGGLE_SIDER, ISBUY_STATE } from 'query';
 import React from 'react';
 import { useMutation, useQuery } from 'react-apollo-hooks';
 import APPCONFIG from 'constants/config';
+// import { SIDE_NAV_STATE, TOGGLE_SIDER, ISBUY_STATE } from 'query';
 
-
+import { AllLocalState, ToggleSider } from 'graphql/local.graphql'
 
 const { SubMenu } = Menu;
 
@@ -14,23 +14,15 @@ const { Sider } = Layout
 
 
 const AppSider = () => {
-  const { data } = useQuery(SIDE_NAV_STATE);
-  // const { isBuy } = useQuery(ISBUY_STATE);
-
-  // console.log('data ', data);
-
-  // const [collapsed, setCollapse] = useState(false);
-  const toggle = useMutation(TOGGLE_SIDER);
+  const { data } = useQuery(AllLocalState);
+  const toggle = useMutation(ToggleSider);
 
   // 买 卖 菜单 状态切换
-
-
-
   return (
     <div className="app-sidenav-container">
       < Sider
         collapsible
-        collapsed={data.collapsed.value}
+        collapsed={data.collapsed}
         onCollapse={toggle}
         // collapsible
         // collapsed={collapsed}
@@ -46,7 +38,7 @@ const AppSider = () => {
           <a href="#/" className="brand">{APPCONFIG.brand}</a>
         </section>
         <div className="sidenav-content" >
-          {data.isBuy.value ? (<Menu
+          {data.isBuy ? (<Menu
             mode="vertical"
             // mode="inline"
             // inlineCollapsed={data.collapsed.value}

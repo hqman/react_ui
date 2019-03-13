@@ -1,0 +1,20 @@
+query SiderCollapsed {
+  collapsed
+}
+
+query IsBuy {
+  isBuy
+}
+
+query AllLocalState {
+  collapsed
+  isBuy
+}
+
+mutation ToggleSider {
+  toggleSider @client
+}
+
+mutation ToggleIsBuy {
+  toggleIsBuy @client
+}

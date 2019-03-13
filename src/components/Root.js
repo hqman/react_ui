@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './Applayout/App';
+import App from './Layout/Applayout/App';
 // import 'styles/debug.css';
 // import { Layout } from 'antd';
 // import "antd/dist/antd.css";
-import App2 from './Applayout/App2';
+import App2 from './Layout/Applayout/App2';
 // import 顺序 很重要 否则 theme 不起作用
 import '../styles/antd.less';
 import "styles/bootstrap/bootstrap.scss";
@@ -20,4 +20,4 @@ const Root = ({ layout }) => {
     return <App />
   }
 }
-export default Root
+export default Root;

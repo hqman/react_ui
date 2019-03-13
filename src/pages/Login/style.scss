@@ -1,0 +1,56 @@
+@import "~styles/variables";
+
+.appLogo {
+  height: 60px;
+  margin-right: 16px;
+}
+.appInfo {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+// with Form Card component
+.form-card-page {
+  height: 100vh;
+  overflow-y: scroll;
+  border-radius: 0;
+}
+
+// with Cover component
+.cover-page {
+  height: 100vh;
+  padding: 0;
+  overflow-y: scroll;
+
+  .cover-form-container {
+    height: 100vh;
+    max-height: 100vh;
+    padding: 3rem 0;
+    overflow-y: scroll;
+    @media screen and (min-width: map-get($grid-breakpoints, md)) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+
+.login-container {
+  background-image: linear-gradient(65deg, #21d4fd 0%, #b721ff 100%);
+}
+
+.form-v2-container {
+  width: 368px;
+  margin: 0 auto;
+  label {
+    color: #fafafa;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  border: 1px solid #ccc !important;
+}

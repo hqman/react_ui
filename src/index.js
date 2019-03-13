@@ -7,25 +7,24 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 
 
 import { createBrowserHistory } from 'history';
-import Root from "components/Root";
-import client from "apolloConfig";
+import client from "graphql/apolloConfig";
+
+import renderRouteConfig from "utils/router";
+import routeConfig from "routeConfig";
+
+
+
 
 export const history = createBrowserHistory();
 
+// 动态生成路由 Switch and Routes 
+const chlidren = renderRouteConfig(routeConfig, "/");
 
-// import Main from "./layout";
-// import { useExpire } from "./useExpire";
-
-// // import Rowtest from "./menu";
-// const Message = ({ expireDate }) => {
-//   return useExpire(expireDate) ? <h1>test</h1> : null
-//  expireDate={new Date(Date.now() + 2000)}
-// }
 const App = () => (
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
       <Router history={history}>
-        <Root layout={1} />
+        {chlidren}
       </Router>
     </ApolloHooksProvider>
   </ApolloProvider>

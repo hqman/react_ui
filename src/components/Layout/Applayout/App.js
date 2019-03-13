@@ -1,11 +1,15 @@
+import React from 'react';
 import { Layout } from 'antd';
 import AppContent from 'components/Content';
 import AppFooter from 'components/Footer';
 import AppHeader from 'components/Header';
 import AppSider from 'components/Sider';
-import React from 'react';
 
 
+import 'styles/antd.less';
+import "styles/bootstrap/bootstrap.scss";
+import "styles/styles.scss";
+import "styles/vendors.scss"
 
 
 const App = () => {

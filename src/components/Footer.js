@@ -6,7 +6,7 @@ const { Footer } = Layout;
 
 
 const AppFooter = () => (
-  <div className="app-footer app-footer-custom">
+  <Footer className="app-footer app-footer-custom">
     <div className="footer-inner">
 
       <span className="small">
@@ -17,7 +17,7 @@ const AppFooter = () => (
         Built with Love <Icon type="heart-o" />
       </span>
     </div>
-  </div>
+  </Footer>
 
 )
 
