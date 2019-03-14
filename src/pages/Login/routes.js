@@ -10,6 +10,5 @@ export default {
 
   childRoutes: [
     { name: "login", path: "", component: Login },
-    // { name: "about me", path: "me", component: AboutMe }
   ]
 };

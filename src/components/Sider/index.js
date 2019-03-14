@@ -4,6 +4,7 @@ import React from 'react';
 import { useMutation, useQuery } from 'react-apollo-hooks';
 import APPCONFIG from 'constants/config';
 // import { SIDE_NAV_STATE, TOGGLE_SIDER, ISBUY_STATE } from 'query';
+import { Link } from 'react-router-dom';
 
 import { AllLocalState, ToggleSider } from 'graphql/local.graphql'
 
@@ -47,11 +48,11 @@ const AppSider = () => {
           >
             <Menu.Item key="1">
               <Icon type="pie-chart" />
-              <span>买 1</span>
+              <span><Link to='/index'>买 1</Link></span>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
-              <span>买 2</span>
+              <span>买 2<Link to='/index/dashboard'>买 2</Link></span>
             </Menu.Item>
 
             <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Nav One</span></span>}>

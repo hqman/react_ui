@@ -9,22 +9,22 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { createBrowserHistory } from 'history';
 import client from "graphql/apolloConfig";
 
-import renderRouteConfig from "utils/router";
-import routeConfig from "routeConfig";
-
-
+import routeConfig from "commons/routeConfig";
+// import renderRouteConfigV3 from "commons/renderRoutes";
+import renderRouteConfig from "commons/renderRoutes";
 
 
 export const history = createBrowserHistory();
 
 // 动态生成路由 Switch and Routes 
-const chlidren = renderRouteConfig(routeConfig, "/");
-
+const children = renderRouteConfig(routeConfig, "/");
+console.log(children);
+// debugger
 const App = () => (
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
       <Router history={history}>
-        {chlidren}
+        {children}
       </Router>
     </ApolloHooksProvider>
   </ApolloProvider>

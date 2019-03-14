@@ -1,13 +1,19 @@
 import React from 'react';
 import { Mutation, ApolloConsumer } from 'react-apollo';
-import LoginForm from './LoginForm'
-
-
+import LoginForm from './LoginForm';
+// import { ApolloConsumer } from 'react-apollo'
+import { Redirect } from "react-router-dom";
 import { Login as LoginMutation } from 'graphql/user.graphql'
 import './style.scss'
 
 
 const Login = () => {
+
+  // const client = useApolloClient();
+
+  // console.log('login page...');
+
+
   return (
     <ApolloConsumer>
       {client => (
@@ -20,9 +26,17 @@ const Login = () => {
             client.writeData({ data: { isLoggedIn: true } });
           }}
         >
-          {(login, { loading, error }) => {
+          {(login, { data, loading, error }) => {
             if (loading) return <h2>loading</h2>;
             if (error) return <p>An error occurred</p>;
+
+
+            // console.log(data);
+            if (data && data.login.ok) {
+              // console.log('login ok1');
+              return <Redirect to="/dashboard" />
+            }
+
 
             return (
               <section className="form-card-page form-card row no-gutters  login-container">

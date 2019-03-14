@@ -2,27 +2,15 @@ import React from 'react';
 import { useMutation, useQuery } from 'react-apollo-hooks';
 import { Avatar, Divider, Dropdown, Icon, Layout, Menu, Radio } from 'antd';
 
-import { AllLocalState, ToggleSider, ToggleIsBuy } from 'graphql/local.graphql'
-// import { SIDE_NAV_STATE } from 'query';
+import { AllLocalState, ToggleSider, ToggleIsBuy, Logout } from 'graphql/local.graphql'
 import Logo from './Logo';
-
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
 
 const { Header } = Layout
 
-const avatarDropdown = (
-  <Menu className="app-header-dropdown">
-    <Menu.Item key="4" className="d-block d-md-none"> Signed in as <strong>Admin</strong> </Menu.Item>
-    <Menu.Divider className="d-block d-md-none" />
-    <Menu.Item key="1" disabled> <Icon type="setting" />Settings </Menu.Item>
-    <Menu.Item key="0"> <a href='#/'><Icon type="info-circle-o" />About</a> </Menu.Item>
-    <Menu.Item key="2"> <a href='#/'><Icon type="question-circle-o" />Need Help?</a> </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3"> <a href='#/'><Icon type="logout" />Sign out</a> </Menu.Item>
-  </Menu>
-);
+
 
 const AppHeader = ({ showLogo }) => {
 
@@ -36,6 +24,13 @@ const AppHeader = ({ showLogo }) => {
     }
   });
 
+  const handleLogout = useMutation(Logout, {
+    update: (proxy, mutationResult) => {
+      // console.log(mutationResult);
+
+    }
+  });
+
   const changeIsBuy = useMutation(ToggleIsBuy, {
     update: (proxy, mutationResult) => {
       // console.log(mutationResult);
@@ -43,7 +38,27 @@ const AppHeader = ({ showLogo }) => {
     }
   });
 
+  const avatarDropdown = (
+    <Menu className="app-header-dropdown">
+      <Menu.Item key="4" className="d-block d-md-none"> Signed in as <strong>admin</strong> </Menu.Item>
+      <Menu.Divider className="d-block d-md-none" />
+      <Menu.Item key="1" > <Icon type="setting" />Settings </Menu.Item>
+      <Menu.Item key="0"> <a href="#/"><Icon type="info-circle-o" />About</a> </Menu.Item>
+      <Menu.Item key="2"> <a href="#/"><Icon type="question-circle-o" />Need Help?</a> </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="3">
 
+        <div
+          onClick={handleLogout}
+          role="presentation"
+        >
+          <Icon type="logout" />
+          <span>退出</span>
+        </div>
+
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <Header className="app-header">
       <div className=" app-header-inner bg-info">

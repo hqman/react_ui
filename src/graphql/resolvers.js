@@ -1,14 +1,17 @@
 import gql from 'graphql-tag';
-import { SiderCollapsed, IsBuy } from './local.graphql'
+import { SiderCollapsed, IsBuy } from 'graphql/local.graphql'
 
 export const typeDefs = gql`
 extend type Query{
       collapsed:Boolean!,
-       isBuy: Boolean!
+       isBuy: Boolean!,
+      isLoggedIn: Boolean!
+
 }
 extend type Mutation{
  toggleSider:String,
- toggleIsBuy:String 
+ toggleIsBuy:String ,
+ logout:Boolean!
 }
 `
 
@@ -29,6 +32,10 @@ export const resolvers = {
       });
       cache.writeData({ data: { isBuy: !isBuy } });
       return 'ok';
+    }, logout: (_, args, { cache }) => {
+      cache.writeData({ data: { isLoggedIn: false } });
+      localStorage.clear();
+      return true;
     }
   }
 }

@@ -27,6 +27,7 @@ const client = new ApolloClient({
 
 cache.writeData({
   data: {
+    isLoggedIn:!!tokenValue,
     isBuy: true,
     collapsed: false
   },

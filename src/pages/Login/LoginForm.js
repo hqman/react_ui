@@ -13,7 +13,7 @@ const LoginForm = ({ login, form }) => {
 
     form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values.userName, login);
+        // console.log('Received values of form: ', values.userName, login);
         login({
           variables: {
             userName: values.userName,

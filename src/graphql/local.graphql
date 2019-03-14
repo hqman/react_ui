@@ -18,3 +18,11 @@ mutation ToggleSider {
 mutation ToggleIsBuy {
   toggleIsBuy @client
 }
+
+query IsLoggedIn {
+  isLoggedIn @client
+}
+
+mutation Logout {
+  logout @client
+}
