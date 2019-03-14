@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Form, Button, Icon, Input } from "antd";
 
-import logo from 'assets/logo.png'
+import logo from '/images/logo.png'
 const FormItem = Form.Item;
 
 const LoginForm = ({ login, form }) => {

@@ -12,6 +12,7 @@ import client from "graphql/apolloConfig";
 import routeConfig from "commons/routeConfig";
 // import renderRouteConfigV3 from "commons/renderRoutes";
 import renderRouteConfig from "commons/renderRoutes";
+import Root from "components/Root";
 
 
 export const history = createBrowserHistory();
@@ -24,11 +25,15 @@ const App = () => (
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
       <Router history={history}>
+
         {children}
+
       </Router>
     </ApolloHooksProvider>
   </ApolloProvider>
 );
+
+
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);

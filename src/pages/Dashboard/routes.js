@@ -3,9 +3,10 @@ import Dashboard from "./index";
 
 export default {
   name: "dashboard",
-  path: "dashboard",
+  path: "/",
   component: Applayout,
   childRoutes: [
-    { name: "dashboard", path: "", component: Dashboard },
+    { name: "home", path: "dashboard", component: Dashboard, exact: true, isIndex: true },
+    // { name: "dashboard2", path: "dashboard", component: Dashboard },
   ]
 };

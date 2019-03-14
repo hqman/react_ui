@@ -34,7 +34,7 @@ const Login = () => {
             // console.log(data);
             if (data && data.login.ok) {
               // console.log('login ok1');
-              return <Redirect to="/dashboard" />
+              return <Redirect to="/" />
             }
 
 

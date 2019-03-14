@@ -1,17 +1,21 @@
 import dashboardRoute from "pages/Dashboard/routes";
 import loginRoute from "pages/Login/routes";
+import exceptionRoute from "pages/Exceptions/routes";
 import { PageNotFound } from "pages/Exceptions/index";
-import Applayout from "components/Layout/Applayout/index";
+// import { Exception } from "handlebars";
+// import Applayout from "components/Layout/Applayout/index";
 // import Dashboard from "pages/Dashboard/index";
 
 const routes = [{
   path: '/',
-  component: Applayout,
+
   childRoutes: [
-    // { path: '', name: 'Home', component: Dashboard },
+
+    // exceptionRoute,
     dashboardRoute,
     loginRoute,
-    { path: '*', name: 'Page not found', component: PageNotFound },
+    // Exceptions  
+    { path: '*', name: 'Page not found', component: PageNotFound, not_found: true },
   ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
 }];
 
@@ -37,5 +41,5 @@ function handleIndexRoute(route) {
 }
 
 routes.forEach(handleIndexRoute);
-// export default routes;
-export default [dashboardRoute, loginRoute];
+export default routes;
+// export default [dashboardRoute, loginRoute];

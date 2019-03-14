@@ -42,12 +42,19 @@ export default function renderRouteConfigV3(routes, contextPath) {
       children.push(
         <Route
           key={newContextPath}
+          exact
           render={props => <item.component {...props}>{childRoutes}</item.component>}
           path={newContextPath}
         />
       );
     } else if (item.component) {
-      children.push(<Route key={newContextPath} component={item.component} path={newContextPath} exact />);
+      if (item.not_found) {
+
+        children.push(<Route key={newContextPath} component={item.component} path={newContextPath} exact />);
+      } else {
+
+        children.push(<Route key={newContextPath} exact component={item.component} path={newContextPath} exact />);
+      }
     } else if (item.childRoutes) {
       item.childRoutes.forEach(r => renderRoute(r, newContextPath));
     }

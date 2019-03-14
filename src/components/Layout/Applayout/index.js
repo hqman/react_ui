@@ -4,28 +4,40 @@ import { Layout } from 'antd';
 import AppFooter from 'components/Footer';
 import AppHeader from 'components/Header';
 import AppSider from 'components/Sider';
-
+import { Redirect } from 'react-router'
 // import { Layout } from 'antd';
 import 'styles/antd.less';
 import "styles/bootstrap/bootstrap.scss";
 import "styles/styles.scss";
 import "styles/vendors.scss"
+import { useQuery } from 'react-apollo-hooks';
+
+import { IsLoggedIn } from 'graphql/local.graphql'
+
 const { Content } = Layout;
 
 const App = ({ children }) => {
-  return (
-    <Layout className='fixed-sidenav' id="app-layout">
-      <AppSider />
-      <Layout className="fixed-height">
-        <AppHeader />
-        <Content id='app-content'>
-          {children}
-        </Content>
-        <AppFooter />
-      </Layout>
+  const { data, error, loading } = useQuery(IsLoggedIn);
+  if (data.isLoggedIn) {
+    return (
+      <Layout className='fixed-sidenav' id="app-layout">
+        <AppSider />
+        <Layout className="fixed-height">
+          <AppHeader />
+          <Content id='app-content'>
+            {children}
+          </Content>
+          <AppFooter />
+        </Layout>
 
-    </Layout>
-  )
+      </Layout>
+    )
+  } else {
+    // console.log("data.isLoggedIn,....", data.isLoggedIn);
+    // return <h1>test</h1>
+    return <Redirect to='/login' />
+    // return <Login />
+  }
 }
 export default App
 
@@ -42,16 +54,16 @@ export default App
 
 //   // return (
 //   //   <Query query={IsLoggedIn}>
-//   //     {({ data }) => {
-//   //       if (data.isLoggedIn) {
-//   //         return <AppContent layout={layout} />
-//   //       } else {
-//   //         console.log("data.isLoggedIn,....", data.isLoggedIn);
-//   //         return <h1>test</h1>
-//   //         // return <Redirect to='/login' />
-//   //         // return <Login />
-//   //       }
-//   //     }
+// //   //     {({ data }) => {
+// if (data.isLoggedIn) {
+//   return <AppContent layout={layout} />
+// } else {
+//   console.log("data.isLoggedIn,....", data.isLoggedIn);
+//   return <h1>test</h1>
+//   // return <Redirect to='/login' />
+//   // return <Login />
+// }
+      // }
 //   //     }
 //   //   </Query>
 //   // )
