@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Form, Button, Icon, Input } from "antd";
 
-import logo from '/images/logo.png'
+import logo from 'images/logo.png'
 const FormItem = Form.Item;
 
 const LoginForm = ({ login, form }) => {
@@ -24,6 +24,8 @@ const LoginForm = ({ login, form }) => {
     });
   };
 
+
+
   const { getFieldDecorator } = form;
 
   return (
@@ -31,7 +33,6 @@ const LoginForm = ({ login, form }) => {
       <div className="appInfo">
         <img className="appLogo" src={logo} alt="logo" />
       </div>
-
 
       <Form onSubmit={onSubmit} className="form-v1">
 

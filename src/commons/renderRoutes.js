@@ -24,7 +24,7 @@ export function renderRoutes(routes, extraProps = {}, switchProps = {}) {
   ) : null;
 }
 
-
+// todo  debug routes
 export default function renderRouteConfigV3(routes, contextPath) {
   // Resolve route config object in React Router v3.
   const children = []; // children component list

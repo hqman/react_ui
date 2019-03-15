@@ -12,22 +12,20 @@ import client from "graphql/apolloConfig";
 import routeConfig from "commons/routeConfig";
 // import renderRouteConfigV3 from "commons/renderRoutes";
 import renderRouteConfig from "commons/renderRoutes";
-import Root from "components/Root";
+// import Root from "components/Root";
 
 
 export const history = createBrowserHistory();
 
 // 动态生成路由 Switch and Routes 
 const children = renderRouteConfig(routeConfig, "/");
-console.log(children);
+// console.log(children);
 // debugger
 const App = () => (
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
       <Router history={history}>
-
         {children}
-
       </Router>
     </ApolloHooksProvider>
   </ApolloProvider>

@@ -18,6 +18,9 @@ const { Content } = Layout;
 
 const App = ({ children }) => {
   const { data, error, loading } = useQuery(IsLoggedIn);
+  if (loading) return <>loading</>;
+  if (error) return <p>An error occurred</p>;
+
   if (data.isLoggedIn) {
     return (
       <Layout className='fixed-sidenav' id="app-layout">

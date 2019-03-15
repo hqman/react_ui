@@ -6,14 +6,17 @@ import { resolvers, typeDefs } from './resolvers';
 
 const cache = new InMemoryCache();
 const tokenValue = localStorage.getItem('token')
-const currentCompanyId = localStorage.getItem('current_company_id')
-// console.log(currentCompanyId ? currentCompanyId : 0);
+const currentCompanyId = localStorage.getItem('currentCompanyId')
+
+const IsProduct = process.env.NODE_ENV === 'production';
+// console.log("IsProduct : ", IsProduct, process.env.NODE_ENV);
+const devServer = 'http://localhost:5000/graphql';
+const proServer = 'http://smqsmqsmq.net/graphql';
 
 const client = new ApolloClient({
   cache,
-  // httpLinkAuth,
   link: new HttpLink({
-    uri: 'http://localhost:5000/graphql',
+    uri: IsProduct ? proServer : devServer,
     headers: {
       Authorization: `Bearer ${tokenValue}`,
       company_id: currentCompanyId ? currentCompanyId : 0,
@@ -25,9 +28,11 @@ const client = new ApolloClient({
   typeDefs,
 });
 
+// init app cache 
+//isLoggedIn 登录状态  isBuy 买卖选择  collapsed 菜单是否折叠
 cache.writeData({
   data: {
-    isLoggedIn:!!tokenValue,
+    isLoggedIn: !!tokenValue,
     isBuy: true,
     collapsed: false
   },

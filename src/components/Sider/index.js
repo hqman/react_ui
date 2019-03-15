@@ -1,17 +1,15 @@
-import { Icon, Layout, Menu } from 'antd';
-import classnames from 'classnames';
 import React from 'react';
-import { useMutation, useQuery } from 'react-apollo-hooks';
-import APPCONFIG from 'constants/config';
-// import { SIDE_NAV_STATE, TOGGLE_SIDER, ISBUY_STATE } from 'query';
+import classnames from 'classnames';
+import { Icon, Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
+import { useMutation, useQuery } from 'react-apollo-hooks';
 
 import { AllLocalState, ToggleSider } from 'graphql/local.graphql'
+import APPCONFIG from 'constants/config';
 
 const { SubMenu } = Menu;
-
-
 const { Sider } = Layout
+const MenuItemGroup = Menu.ItemGroup;
 
 
 const AppSider = () => {
@@ -46,14 +44,16 @@ const AppSider = () => {
             // selectedKeys={["3"]}
             theme="dark"
           >
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span><Link to='/index'>买 1</Link></span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>买 2<Link to='/index/dashboard'>买 2</Link></span>
-            </Menu.Item>
+            <SubMenu key="sub0" title={<span><Icon type="mail" /><span>买</span></span>}>
+              <MenuItemGroup title="Item 1">
+                <Menu.Item key="1">Option 1</Menu.Item>
+                <Menu.Item key="2">Option 2</Menu.Item>
+              </MenuItemGroup>
+              <MenuItemGroup title="Iteom 2">
+                <Menu.Item key="3">Option 3</Menu.Item>
+                <Menu.Item key="4">Option 4</Menu.Item>
+              </MenuItemGroup>
+            </SubMenu>
 
             <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Nav One</span></span>}>
               <Menu.Item key="5">Option 5</Menu.Item>

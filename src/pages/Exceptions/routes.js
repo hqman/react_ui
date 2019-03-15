@@ -1,5 +1,4 @@
-import Applayout from "components/Layout/Applayout/index";
-import Dashboard, { PageNotFound } from "./index";
+import { PageNotFound } from "./index";
 
 export default {
   name: "xxx",

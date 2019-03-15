@@ -20,9 +20,11 @@ const Login = () => {
         <Mutation
           mutation={LoginMutation}
           onCompleted={({ login }) => {
+            console.log(login);
+
             localStorage.setItem('token', login.jwt);
-            localStorage.setItem('current_company_id',
-              login.current_company_id ? login.current_company_id : 0)
+            localStorage.setItem('currentCompanyId',
+              login.currentCompanyId ? login.currentCompanyId : 0)
             client.writeData({ data: { isLoggedIn: true } });
           }}
         >

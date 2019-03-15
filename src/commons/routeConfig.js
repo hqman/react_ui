@@ -1,7 +1,6 @@
 import dashboardRoute from "pages/Dashboard/routes";
-import loginRoute from "pages/Login/routes";
-import exceptionRoute from "pages/Exceptions/routes";
 import { PageNotFound } from "pages/Exceptions/index";
+import loginRoute from "pages/Login/routes";
 // import { Exception } from "handlebars";
 // import Applayout from "components/Layout/Applayout/index";
 // import Dashboard from "pages/Dashboard/index";
